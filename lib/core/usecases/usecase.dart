@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_clean_architecture/core/error/failures.dart';
 import 'package:flutter_clean_architecture/features/number_trivia/domain/entities/number_trivia.dart';
 
-abstract class NumberTriviaRepository{
-  Future<Either<Failure, NumberTrivia>> getConcreteNumberTrivia(int number);
-  Future<Either<Failure, NumberTrivia>> getRandomNumberTrivia();
+abstract class UseCase<Type, Params> {
+  Future<Either<Failure, NumberTrivia>> call(Params params);
 }
 
+class NoParams extends Equatable {}
