@@ -17,3 +17,4 @@ class NumberTriviaModel extends NumberTrivia {
     };
   }
 }
+
