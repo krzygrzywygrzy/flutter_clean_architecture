@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_clean_architecture/core/error/exceptions.dart';
 import 'package:flutter_clean_architecture/features/number_trivia/data/datasources/number_trivia_local_datasource.dart';
 import 'package:flutter_clean_architecture/features/number_trivia/data/models/number_trivia_model.dart';
@@ -36,17 +35,17 @@ void main() {
       expect(result, equals(tNumberTriviaModel));
     });
 
-    // test(
-    //     "should throw CacheException when there is not a chached value",
-    //         () async {
-    //       //arrange
-    //       when(mockSharedPreferences.getString(any))
-    //           .thenReturn(null);
-    //       //act
-    //       final call =  dataSource.getLastNumberTrivia;
-    //       //arrange
-    //       expect(()=> call(), throwsA(TypeMatcher<CacheException>()));
-    //     });
+    test(
+        "should throw CacheException when there is not a chached value",
+            () async {
+          //arrange
+          when(mockSharedPreferences.getString(any))
+              .thenReturn(null);
+          //act
+          final call =  dataSource.getLastNumberTrivia;
+          //arrange
+          expect(()=> call(), throwsA(isA<CacheException>()));
+        });
 
   });
 
